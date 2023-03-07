@@ -4,7 +4,10 @@ Created on Mon Mar  6 18:03:44 2023
 
 @author: 88697
 """
-#K均值聚类算法评价: 时间& 轮廓系数
+#本档案放在目录: \机器学习2023\codes\2.clustering\kmeans
+#来读取 kmeansSamples.txt
+
+#K均档案放在此目录:值聚类算法评价: 时间& 轮廓系数
 
 import numpy as np
 from sklearn.cluster import KMeans
