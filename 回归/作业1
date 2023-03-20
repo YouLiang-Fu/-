@@ -29,6 +29,17 @@ plt.plot(X1,Y2,c= 'b')
 X2= np.linspace(15,40,100)
 X4=np.array(X2).reshape(-1,1)
 
+from sklearn.preprocessing import PolynomialFeatures
+X3= PolynomialFeatures(degree=3).fit_transform(X1)
+
+print(X3)
+
+from sklearn.linear_model import LinearRegression
+
+model3=LinearRegression()
+model3.fit(X3,Y1)
+print(model3.coef_)
+
 Y4=model3.predict(PolynomialFeatures(degree=3).fit_transform(X4))          
 
 plt.scatter(X1,Y1,c='g')
