@@ -47,4 +47,47 @@ plt.plot(X1,Y2,c= 'b')
 plt.plot(X4, Y4, c='r')
 
 # 三次多项式回归，当溫度为22度时，花朵的数量？
+# 请㝍出代码及结果# 三次多项式回归，当溫度为22度时，花朵的数量？
+# 请㝍出代码及结果
+temperatures = [15, 20, 25, 30, 35,40]
+flowers = [136, 140, 155, 160, 157, 175]
+
+import numpy as np
+
+X= temperatures
+Y= flowers
+
+import matplotlib.pyplot as plt
+plt.scatter(X,Y,c='g')
+#
+import numpy as np
+X1=np.array(X).reshape(-1,1)
+Y1=np.array(Y).reshape(-1,1)
+
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X1,Y1)
+
+Y2= model.predict(X1)
+plt.scatter(X1,Y1,c='g')
+plt.plot(X1,Y2,c= 'b')
+#
+from sklearn.preprocessing import PolynomialFeatures
+X3= PolynomialFeatures(degree=3).fit_transform(X1)
+print(X3)
+
+model3=LinearRegression()
+model3.fit(X3,Y1)
+print(model3.coef_)
+
+#
+X2= np.linspace(15,40,100)
+X4=np.array(X2).reshape(-1,1)
+Y4=model3.predict(PolynomialFeatures(degree=3).fit_transform(X4))          
+
+plt.scatter(X1,Y1,c='g')
+plt.plot(X1,Y2,c= 'b')
+plt.plot(X4, Y4, c='r')
+
+# 三次多项式回归，当溫度为22度时，花朵的数量？
 # 请㝍出代码及结果
