@@ -1,5 +1,5 @@
-# Authors: Tom Dupre la Tour <tom.dupre-la-tour@m4x.org>
-# License: BSD 3 clause
+# 逻辑回归 多分类 One over Rest  练习
+# run in juputer lab 
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,12 +13,10 @@ X, y = make_blobs(n_samples=1000, centers=centers, random_state=40)
 transformation = [[0.4, 0.2], [-0.4, 1.2]]
 X = np.dot(X, transformation)
 
-multi_class= 'ovr'
-clf = LogisticRegression(
-        solver="sag", max_iter=100, random_state=42, multi_class="ovr"
-    ).fit(X, y)
 
+clf = LogisticRegression(multi_class="ovr").fit(X, y)
     # print the training scores
+multi_class= 'ovr'
 print("training score : %.3f (%s)" % (clf.score(X, y), multi_class))
 
 _, ax = plt.subplots()
